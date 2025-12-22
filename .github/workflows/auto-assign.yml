@@ -15,5 +15,5 @@ jobs:
       uses: pozil/auto-assign-issue@v1
       with:
           repo-token: ${{ secrets.GITHUB_TOKEN }}
-          assignees: carlos-espinosa-itti
+          assignees: CarlosEspinosa88
           numOfAssignee: 1
