@@ -5,6 +5,9 @@ on:
   pull_request:
     types: [opened]
 jobs:
+  copilot-review:
+    uses: ittidigital/.github/.github/workflows/copilot-review.yml@main
+    secrets: inherit
   run:
     runs-on: ubuntu-latest
     permissions:
