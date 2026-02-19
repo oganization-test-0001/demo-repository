@@ -1,0 +1,22 @@
+# Ignore Mac system files
+.DS_Store
+# Ignore log files
+*.log
+# Ignore environment variable files
+.env
+# Ignore build output directories
+dist
+build
+coverage
+# Ignore node modules
+node_modules
+# Ignore IDE specific files
+.idea
+.vscode
+# Ignore Visual Studio files
+*.suo
+*.ntvs*
+*.njsproj
+*.sln
+# Ignore swap files
+*.sw?
