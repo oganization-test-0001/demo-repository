@@ -1,4 +1,0 @@
-jobs:
-  copilot-review:
-    uses: oganization-test-0001/.github/.github/workflows/copilot-review.yml@main
-    secrets: inherit
