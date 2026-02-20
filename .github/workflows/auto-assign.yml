@@ -4,19 +4,19 @@ on:
     types: [opened]
   pull_request:
     types: [opened]
+
 jobs:
-  copilot-review:
-    uses: ittidigital/.github/.github/workflows/copilot-review.yml@main
-    secrets: inherit
-  run:
+  auto-assign:
     runs-on: ubuntu-latest
     permissions:
       issues: write
       pull-requests: write
     steps:
-    - name: 'Auto-assign issue'
-      uses: pozil/auto-assign-issue@v1
-      with:
-          repo-token: ${{ secrets.GITHUB_TOKEN }}
-          assignees: CarlosEspinosa88
-          numOfAssignee: 1
+      - name: 'Auto-assign issue'
+        uses: pozil/auto-assign-issue@v1
+        with:
+            repo-token: ${{ secrets.GITHUB_TOKEN }}
+            # puedes listar varios usuarios separados por comas
+            assignees: CarlosEspinosa88
+            # selecciona cuántos de la lista asignará al azar
+            numOfAssignee: 2
