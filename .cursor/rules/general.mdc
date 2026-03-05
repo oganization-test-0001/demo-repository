@@ -1,0 +1,24 @@
+---
+description: General project conventions and coding standards
+globs:
+alwaysApply: true
+---
+
+# Project Conventions
+
+This is a demo repository that renders a static web page using plain HTML and the Primer CSS framework.
+
+## Tech Stack
+
+- **HTML** — static markup (no templating engine)
+- **CSS** — via `@primer/css` (GitHub's design system)
+- **Node.js** — used only for dependency management (no build step)
+- **GitHub Actions** — CI/CD workflows
+
+## Key Guidelines
+
+- Keep the project simple; avoid introducing build tools or frameworks unless explicitly requested.
+- Use semantic HTML elements (`<header>`, `<main>`, `<section>`, `<footer>`, etc.).
+- Follow accessibility best practices (alt text for images, ARIA labels where appropriate).
+- All file names should use kebab-case.
+- Commit messages must follow the Conventional Commits specification (`feat:`, `fix:`, `docs:`, `chore:`, etc.).
