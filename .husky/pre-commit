@@ -27,7 +27,7 @@ fi
 conflict_files=$(git diff --cached --name-only --diff-filter=ACM)
 if [ -n "$conflict_files" ]; then
   for file in $conflict_files; do
-    if grep -rn '<\{7\} \|=\{7\} \|>\{7\} ' "$file" 2>/dev/null; then
+    if grep -rn '<\{7\} \|=\{7\}$\|>\{7\} ' "$file" 2>/dev/null; then
       echo "ERROR: Merge conflict markers found in $file"
       exit 1
     fi
