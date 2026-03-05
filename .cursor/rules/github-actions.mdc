@@ -1,0 +1,25 @@
+---
+description: Rules for GitHub Actions workflow files
+globs: ".github/workflows/*.yml"
+alwaysApply: false
+---
+
+# GitHub Actions Guidelines
+
+## Workflow Standards
+
+- Use `ubuntu-latest` as the default runner unless a specific OS version is required.
+- Always pin action versions to a specific tag or SHA (e.g., `actions/checkout@v4`), never use `@main` or `@master`.
+- Define the minimum required `permissions` for each job explicitly.
+- Use descriptive `name` fields for workflows, jobs, and steps.
+
+## Security
+
+- Never hard-code secrets; always reference them via `${{ secrets.* }}`.
+- Use `GITHUB_TOKEN` with the least-privilege permissions necessary.
+- Audit third-party actions before adding them to workflows.
+
+## Structure
+
+- Keep one workflow per YAML file.
+- Use `workflow_dispatch` alongside other triggers so workflows can be run manually when needed.

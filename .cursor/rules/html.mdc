@@ -1,0 +1,24 @@
+---
+description: Rules for writing and editing HTML files
+globs: "**/*.html"
+alwaysApply: false
+---
+
+# HTML Guidelines
+
+## Structure
+
+- Every HTML file must include a valid `<!DOCTYPE html>` declaration.
+- Include `<html lang="en">`, `<head>` with charset and viewport meta tags, and `<body>`.
+- Use Primer CSS classes from `@primer/css` for styling instead of writing custom CSS when possible.
+
+## Accessibility
+
+- All `<img>` elements must have an `alt` attribute.
+- Use heading elements (`<h1>`–`<h6>`) in proper hierarchical order; do not skip levels.
+- Ensure interactive elements are keyboard-accessible.
+
+## Performance
+
+- Place `<script>` tags at the end of `<body>` or use `defer`/`async` attributes.
+- Prefer linking external stylesheets over inline `<style>` blocks.

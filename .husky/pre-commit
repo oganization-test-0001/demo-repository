@@ -1,0 +1,37 @@
+#!/bin/sh
+
+echo "Running pre-commit checks..."
+
+# Check that all staged HTML files contain a DOCTYPE declaration
+html_files=$(git diff --cached --name-only --diff-filter=ACM -- '*.html')
+
+if [ -n "$html_files" ]; then
+  echo "Checking HTML files..."
+  for file in $html_files; do
+    if ! grep -qi '<!DOCTYPE html>' "$file"; then
+      echo "WARNING: $file is missing <!DOCTYPE html> declaration"
+    fi
+  done
+  echo "HTML check complete."
+fi
+
+# Prevent committing .env files
+env_files=$(git diff --cached --name-only --diff-filter=ACM -- '.env*')
+if [ -n "$env_files" ]; then
+  echo "ERROR: Attempting to commit environment files: $env_files"
+  echo "Remove them from staging with: git reset HEAD <file>"
+  exit 1
+fi
+
+# Check for merge conflict markers in staged files
+conflict_files=$(git diff --cached --name-only --diff-filter=ACM)
+if [ -n "$conflict_files" ]; then
+  for file in $conflict_files; do
+    if grep -rn '<\{7\} \|=\{7\} \|>\{7\} ' "$file" 2>/dev/null; then
+      echo "ERROR: Merge conflict markers found in $file"
+      exit 1
+    fi
+  done
+fi
+
+echo "Pre-commit checks passed."
